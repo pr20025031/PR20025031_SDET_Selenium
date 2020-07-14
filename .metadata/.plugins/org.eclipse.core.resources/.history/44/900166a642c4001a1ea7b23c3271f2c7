@@ -1,0 +1,69 @@
+package makemytrip;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import pageObjects.BookFlightsPage;
+import pageObjects.HomePage;
+import resources.Base;
+import resources.DataDriven;
+
+public class MakeMyTripTest extends Base {
+	
+	
+
+	@Test
+	public void test1() throws IOException, InterruptedException
+	{
+		ArrayList<String> al = new ArrayList<String>();
+		al= DataDriven.getData("launchHomepage");
+		driver = initialiseDriver();
+		driver.get(al.get(1));
+		driver.manage().window().maximize();
+		Thread.sleep(3000L);
+	}
+	
+	@Test(dataProvider= "getData")
+	public void test2(String From, String To) throws InterruptedException
+	{
+		HomePage hp = new HomePage(driver);
+		hp.selectTripType(prop.getProperty("tripType"));
+		hp.selectFromandToDestination(From,To);
+		Thread.sleep(2000L);
+		hp.setDepartureDate();
+		hp.clickOnSearchAndNavigateToBooking().click();
+		
+	}
+	
+	@Test
+	public void bookFlight() throws IOException, InterruptedException
+	{
+		driver=initialiseDriver();
+		BookFlightsPage bf = new BookFlightsPage(driver);
+		//bf.selectCheapestFlight();
+		bf.anyMethod();
+	}
+	
+	
+	
+	@DataProvider
+	public Object[][] getData()
+	{
+		Object[][] data =  new Object[1][2];
+		
+		data[0][0] = "Mumbai";
+		data[0][1] = "Bengaluru";
+		
+//		data[1][0] = "Pune";
+//		data[1][1] = "Delhi";
+		
+		
+		return data;
+		
+	}
+	
+
+}

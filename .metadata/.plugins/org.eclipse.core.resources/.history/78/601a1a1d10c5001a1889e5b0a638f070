@@ -1,0 +1,39 @@
+package pageObjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class RegisterPage_Spain {
+
+	public WebDriver driver;
+
+	public RegisterPage_Spain(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	
+	public WebElement selectGender(String gender)
+	{
+		if(gender.equalsIgnoreCase("Male"))
+		{
+			return driver.findElement(By.id("phdesktopbody_0_labelMale"));
+		}
+		if(gender.equalsIgnoreCase("Female"))
+		{
+			return driver.findElement(By.id("phdesktopbody_0_labelFemale"));
+		}
+		return null;
+	}
+	
+	public WebElement firstName()
+	{
+		return driver.findElement(By.id("phdesktopbody_0_grs_consumer[firstname]"));
+	}
+	
+	public WebElement lastName()
+	{
+		return driver.findElement(By.id("phdesktopbody_0_grs_consumer[lastname]"));
+	}
+	
+}

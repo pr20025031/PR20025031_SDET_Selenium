@@ -1,0 +1,125 @@
+package demoqa;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import pageObjects.AutomationPracticeForm;
+
+import pageObjects.Datepicker;
+import pageObjects.Droppable;
+import pageObjects.SelectMenuOptions;
+import pageObjects.Selectable;
+import resources.Base;
+import resources.ExcelDataDriven;
+
+public class DemoTest extends Base {
+	
+	
+
+
+	@Test
+	public void selectable() throws IOException, InterruptedException
+	{
+		
+		ArrayList<String> dataSelectable = new ArrayList<String>();
+		dataSelectable= ExcelDataDriven.getData("selectable");
+		driver = initializedDriver();
+		driver.get(prop.getProperty("url"));
+		driver.manage().window().maximize();
+		
+		
+		Selectable s = new Selectable(driver);
+		s.navigateToSelectable(dataSelectable.get(1));
+		s.clickAndGetTextofList();
+		s.clickAndGetTextofGrid();
+		
+	}
+	
+	@Test
+	public void automationPracticeForm() throws IOException, InterruptedException
+	{
+		ArrayList<String> data = new ArrayList<String>();
+		data= ExcelDataDriven.getData("automationPracticeForm");
+		driver = initializedDriver();
+		driver.get(prop.getProperty("url"));
+		
+		AutomationPracticeForm h = new AutomationPracticeForm(driver);
+		
+		h.navigateToAutomationPracticeForm();
+		h.firstName().sendKeys(data.get(1));
+		h.lastName().sendKeys(data.get(2));
+		h.emailId().sendKeys(data.get(3));
+		h.selectGender(data.get(4)).click();
+		h.mobileNumber().sendKeys(data.get(5));
+		h.enterBirthDate(data.get(6),data.get(7),data.get(8));
+		h.selectSubjects();
+		h.selectHobbies();
+		h.currentAddress().sendKeys(data.get(9));
+		h.selectState(data.get(10));
+//		String clickOnLink =Keys.chord(Keys.CONTROL, Keys.ENTER);
+//		List<WebElement> al = driver.findElements(By.partialLinkText("Google"));
+//		
+//		for(int i=0; i<al.size(); i++)
+//		{
+//			al.get(i).sendKeys(clickOnLink);
+//		}
+//		h.subject().sendKeys("Mathematics");
+//		h.submit().click();
+	}
+	
+	@Test
+	public void droppable() throws IOException, InterruptedException
+	{
+		ArrayList<String> data = new ArrayList<String>();
+		data= ExcelDataDriven.getData("droppable");
+		driver = initializedDriver();
+		driver.get(prop.getProperty("url"));
+		Droppable d = new Droppable(driver);
+		d.navigateToDroppable(data.get(1));
+		d.dragAndDrop();
+		
+	}
+	
+	@Test
+	public void datePicker() throws IOException, InterruptedException
+	{
+		ArrayList<String> data = new ArrayList<String>();
+		data= ExcelDataDriven.getData("datePicker");
+		driver =initializedDriver();
+		driver.get(prop.getProperty("url"));
+		
+		Datepicker dp = new Datepicker(driver);
+		dp.navigateToDatepicker(data.get(1));
+		dp.selectDate();
+		dp.selectDateAndTime();
+	}
+	
+	@Test
+	public void selectMenu() throws IOException, InterruptedException
+	{
+		ArrayList<String> data = new ArrayList<String>();
+		data= ExcelDataDriven.getData("selectMenu");
+		driver =initializedDriver();
+		driver.get(prop.getProperty("url"));
+		
+		SelectMenuOptions sm = new SelectMenuOptions(driver);
+		sm.navigateToSelectMenu(data.get(1));
+		sm.selectValue();
+		sm.oldStyleSelectMenu();
+	
+	}
+	
+	
+}

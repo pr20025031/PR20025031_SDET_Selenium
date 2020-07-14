@@ -1,0 +1,112 @@
+package pageObjects;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class SelectMenuOptions {
+	public WebDriver driver;
+
+	public SelectMenuOptions(WebDriver driver) {
+		
+		this.driver =driver;
+	}
+	
+	public void navigateToSelectMenu(String selectMenuUrl) throws InterruptedException
+	{
+		driver.get("http://www.demoqa.com/select-menu"); 
+	}
+	
+	
+	
+	public void selectValue() throws InterruptedException
+	{
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("document.getElementsByClassName(\" css-1hwfws3\")[0].click()");
+		
+		
+		//driver.findElement(By.xpath("//div[@id='withOptGroup']//div[contains(@class,'css-tlfecz-indicatorContainer')]//*[local-name()='svg']//*[name()='path' and contains(@d,'M4.516 7.5')]")).click();
+		
+		
+//		List<WebElement> al1 = driver.findElements(By.xpath("//ul[@id='speed-menu'] //li[@class='ui-menu-item']"));
+//		int x=0;
+//		for(int i=0; i<al1.size(); i++)
+//		{
+//			al1.get(i).click();
+//			Thread.sleep(1000L);
+//			if(x==4)
+//			{
+//				break;
+//			}
+//			driver.findElement(By.cssSelector("span[id='speed-button']")).click();
+//			Thread.sleep(1000L);
+//			x++;
+		//}
+	}
+	
+	public void selectFile() throws InterruptedException
+	{
+		driver.findElement(By.cssSelector("span[id='files-button']")).click();
+		List<WebElement> al2 = driver.findElements(By.xpath("//ul[@id='files-menu'] //li[@class='ui-menu-item']"));
+		int y=0;
+		for(int i=0; i<al2.size(); i++)
+		{
+			al2.get(i).click();
+			Thread.sleep(1000L);
+			if(y==3)
+			{
+				break;
+			}
+			driver.findElement(By.cssSelector("span[id='files-button']")).click();
+			Thread.sleep(1000L);
+			y++;
+		}
+	}
+	
+	public void selectNumber() throws InterruptedException
+	{
+		driver.findElement(By.cssSelector("span[id='number-button']")).click();
+		List<WebElement> al3 = driver.findElements(By.xpath("//ul[@id='number-menu'] //li[@class='ui-menu-item']"));
+		int z=0;
+		for(int i=0; i<al3.size(); i++)
+		{
+			al3.get(i).click();
+			Thread.sleep(1000L);
+			if(z==6)
+			{
+				break;
+			}
+			driver.findElement(By.cssSelector("span[id='number-button']")).click();
+			Thread.sleep(1000L);
+			z++;
+		}
+		
+		
+	}
+
+	public void selectTitle() throws InterruptedException {
+		driver.findElement(By.cssSelector("span[id='salutation-button']")).click();
+		List<WebElement> al4 = driver.findElements(By.xpath("//ul[@id='salutation-menu'] //li[@class='ui-menu-item']"));
+		int w=0;
+		for(int i=0; i<al4.size(); i++)
+		{
+			al4.get(i).click();
+			Thread.sleep(1000L);
+			if(w==4)
+			{
+				break;
+			}
+			driver.findElement(By.cssSelector("span[id='salutation-button']")).click();
+			Thread.sleep(1000L);
+			w++;
+		}
+		
+		
+	}
+	
+
+}

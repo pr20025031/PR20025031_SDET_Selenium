@@ -1,0 +1,20 @@
+package resources;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class DataDriven {
+
+	public static void main(String[] args) throws IOException {
+		
+		FileInputStream fis = new FileInputStream("C:\\Users\\HP1\\PR20025031_Prasad_Ram_Sarode_Selenium_Assignment_New\\Assignment3\\src\\main\\java\\excelData\\databook.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		
+		int sheets= workbook.getNumberOfSheets();
+
+	}
+
+}

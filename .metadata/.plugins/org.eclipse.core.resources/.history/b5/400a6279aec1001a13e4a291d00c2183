@@ -1,0 +1,131 @@
+package demoqa;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import pageObjects.ControlGroup;
+import pageObjects.Datepicker;
+import pageObjects.Droppable;
+import pageObjects.HtmlContactForm;
+import pageObjects.SelectMenuOptions;
+import pageObjects.Selectable;
+import resources.Base;
+import resources.ExcelDataDriven;
+
+public class DemoTest extends Base {
+
+	@Test
+	public void selectable() throws IOException, InterruptedException
+	{
+		
+		ArrayList<String> data = new ArrayList<String>();
+		data= ExcelDataDriven.getData("selectable");
+		driver = initializedDriver();
+		driver.get(prop.getProperty("url"));
+		driver.manage().window().maximize();
+		System.out.println(data.get(0));
+		System.out.println(data.get(1));
+		
+		Selectable s = new Selectable(driver);
+		s.navigateToSelectable(data.get(1));
+		s.clickAndGetTextofList();
+		s.clickAndGetTextofGrid();
+		
+	}
+	
+	@Test
+	public void automationPracticeForm() throws IOException, InterruptedException
+	{
+		driver = initializedDriver();
+		driver.get(prop.getProperty("url"));
+		
+		HtmlContactForm h = new HtmlContactForm(driver);
+		
+		h.navigateToAutomationPracticeForm();
+		h.firstName().sendKeys("prasad");
+		h.lastName().sendKeys("sarode");
+		h.emailId().sendKeys("abc@gmail.com");
+		h.selectGender("Female").click();
+		h.mobileNumber().sendKeys("9975567489");
+		h.enterBirthDate("1995","December","25");
+		h.selectSubjects();
+		h.selectHobbies();
+		h.currentAddress().sendKeys("Pune, Maharashtra, India");
+		h.selectState("Haryana");
+//		String clickOnLink =Keys.chord(Keys.CONTROL, Keys.ENTER);
+//		List<WebElement> al = driver.findElements(By.partialLinkText("Google"));
+//		
+//		for(int i=0; i<al.size(); i++)
+//		{
+//			al.get(i).sendKeys(clickOnLink);
+//		}
+//		h.subject().sendKeys("Mathematics");
+//		h.submit().click();
+	}
+	
+	@Test
+	public void droppable() throws IOException, InterruptedException
+	{
+		driver = initializedDriver();
+		driver.get(prop.getProperty("url"));
+		Droppable d = new Droppable(driver);
+		d.navigateToDroppable();
+		d.dragAndDrop();
+		
+	}
+	
+	@Test
+	public void datePicker() throws IOException, InterruptedException
+	{
+		driver =initializedDriver();
+		driver.get(prop.getProperty("url"));
+		
+		Datepicker dp = new Datepicker(driver);
+		dp.navigateToDatepicker();
+		dp.selectDate();
+		dp.selectDateAndTime();
+	}
+	
+	@Test
+	public void selectMenu() throws IOException, InterruptedException
+	{
+		driver =initializedDriver();
+		driver.get(prop.getProperty("url"));
+		
+		SelectMenuOptions sm = new SelectMenuOptions(driver);
+		sm.navigateToSelectMenu();
+//		sm.selectSpeed();
+//		sm.selectFile();
+//		sm.selectNumber();
+//		sm.selectTitle();
+	}
+	
+	@Test
+	public void test6() throws IOException
+	{
+		driver =initializedDriver();
+		driver.get(prop.getProperty("url"));
+		
+		ControlGroup cg = new ControlGroup(driver);
+		cg.controlGroup().click();
+		//cg.bookCar1();
+		cg.bookCar2();
+	}
+	
+	
+	
+	
+		
+		
+
+	
+
+}

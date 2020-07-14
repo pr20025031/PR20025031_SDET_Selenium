@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="94631" started-at="2020-07-14T16:37:43 IST" finished-at="2020-07-14T16:39:17 IST">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="94631" started-at="2020-07-14T16:37:43 IST" finished-at="2020-07-14T16:39:17 IST">
+      <class name="olay.OlayTest">
+        <test-method status="PASS" signature="registerUser(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:olay.OlayTest@5b87ed94]" name="registerUser" duration-ms="94491" started-at="2020-07-14T16:37:43 IST" data-provider="getRegistartionData" finished-at="2020-07-14T16:39:17 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[username1240338297@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[pRASAd@2512]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[28]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[11]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[1995]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[https://www.olay.co.uk/en-gb]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.olaz.de/de-de]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[https://www.olay.es/es-es]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[Deutschland]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[House no 11, Street 11]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[14199]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Male]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Berlin]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[+34912345678]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerUser -->
+      </class> <!-- olay.OlayTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

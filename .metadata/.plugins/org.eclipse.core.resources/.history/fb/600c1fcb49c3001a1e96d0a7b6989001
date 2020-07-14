@@ -1,0 +1,71 @@
+package pageObjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class HomePage {
+
+	public WebDriver driver;
+
+	public HomePage(WebDriver driver) {
+
+		this.driver = driver;
+	}
+
+	public void selectTripType(String tripType) {
+		driver.findElement(By.xpath("//li[@data-cy='account']")).click();
+		if (tripType.equalsIgnoreCase("ONEWAY")) {
+			driver.findElement(By.cssSelector("li[data-cy='oneWayTrip']")).click();
+		}
+
+		if (tripType.equalsIgnoreCase("ROUNDTRIP")) {
+			driver.findElement(By.cssSelector("li[data-cy='roundTrip']")).click();
+		}
+		if (tripType.equalsIgnoreCase("MULTICITY")) {
+			driver.findElement(By.cssSelector("li[data-cy='mulitiCityTrip']")).click();
+		}
+
+	}
+
+	public void selectFromandToDestination(String From, String To) throws InterruptedException {
+
+		// WebElement FromDest=
+		// driver.findElement(By.cssSelector("input[data-cy='fromCity']"));
+
+		driver.findElement(By.cssSelector("input[data-cy='fromCity']")).click();
+		Thread.sleep(1000L);
+		driver.findElement(By.cssSelector("input[placeholder='From']")).sendKeys(From);
+		driver.findElement(By.cssSelector("input[placeholder='From']")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.cssSelector("input[placeholder='From']")).sendKeys(Keys.ENTER);
+		Thread.sleep(1000L);
+
+		// driver.findElement(By.id("toCity")).click();
+		Thread.sleep(1000L);
+		driver.findElement(By.cssSelector("input[placeholder='To']")).sendKeys(To);
+		Thread.sleep(1000L);
+		driver.findElement(By.cssSelector("input[placeholder='To']")).sendKeys(Keys.ARROW_DOWN);
+		Thread.sleep(1000L);
+		driver.findElement(By.cssSelector("input[placeholder='To']")).sendKeys(Keys.ENTER);
+	}
+
+	public void setDepartureDate() throws InterruptedException {
+	
+
+		//driver.findElement(By.cssSelector("label[for='departure']")).click();
+
+		Thread.sleep(2000L);
+		while (!(driver.findElement(By.xpath("(//div[@class='DayPicker-Caption']/div)[1]")).getText()
+				.equalsIgnoreCase("January 2021"))) {
+			driver.findElement(By.cssSelector("span[class='DayPicker-NavButton DayPicker-NavButton--next']")).click();
+		}
+		Thread.sleep(2000L);
+
+	
+			driver.findElement(By.xpath("//div[@class='DayPicker-wrapper']//div[1]//div[3]//div[4]//div[5]")).click();
+		
+
+	}
+
+}

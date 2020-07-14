@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="87032" started-at="2020-07-14T11:11:15Z" finished-at="2020-07-14T11:12:42Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="87032" started-at="2020-07-14T11:11:15Z" finished-at="2020-07-14T11:12:42Z">
+      <class name="demoqa.DemoTest">
+        <test-method status="PASS" signature="selectable()[pri:0, instance:demoqa.DemoTest@498d318c]" name="selectable" duration-ms="19259" started-at="2020-07-14T16:41:15Z" finished-at="2020-07-14T16:41:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectable -->
+        <test-method status="PASS" signature="automationPracticeForm()[pri:0, instance:demoqa.DemoTest@498d318c]" name="automationPracticeForm" duration-ms="21069" started-at="2020-07-14T16:41:34Z" finished-at="2020-07-14T16:41:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- automationPracticeForm -->
+        <test-method status="PASS" signature="droppable()[pri:0, instance:demoqa.DemoTest@498d318c]" name="droppable" duration-ms="13314" started-at="2020-07-14T16:41:55Z" finished-at="2020-07-14T16:42:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- droppable -->
+        <test-method status="PASS" signature="datePicker()[pri:0, instance:demoqa.DemoTest@498d318c]" name="datePicker" duration-ms="21750" started-at="2020-07-14T16:42:08Z" finished-at="2020-07-14T16:42:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- datePicker -->
+        <test-method status="PASS" signature="selectMenu()[pri:0, instance:demoqa.DemoTest@498d318c]" name="selectMenu" duration-ms="11597" started-at="2020-07-14T16:42:30Z" finished-at="2020-07-14T16:42:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectMenu -->
+      </class> <!-- demoqa.DemoTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

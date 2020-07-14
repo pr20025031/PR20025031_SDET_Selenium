@@ -1,0 +1,23 @@
+package pageObjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class BookFlightsPage {
+	
+	public WebDriver driver;
+	
+	public BookFlightsPage(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	
+ 
+	
+	public void selectCheapestFlight()
+	{
+		
+		driver.findElement(By.xpath("(//div[@class='dept-options-section clearfix'] //div[@class='pull-left make_relative'])[1]")).click();
+	}
+
+}

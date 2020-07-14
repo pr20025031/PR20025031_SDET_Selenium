@@ -1,0 +1,21 @@
+package pageObjects;
+
+import org.openqa.selenium.WebDriver;
+
+public class BookFlightsPage {
+	
+	public WebDriver driver;
+	
+	public BookFlightsPage(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	
+	public 
+	
+	public void selectCheapestFlight()
+	{
+		
+	}
+
+}

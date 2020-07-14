@@ -1,0 +1,29 @@
+package pageObjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class BookFlightsPage {
+	
+	public WebDriver driver;
+	
+	public BookFlightsPage(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	
+ 
+	
+	public void selectCheapestFlight() throws InterruptedException
+	{
+		Thread.sleep(10000L);
+		
+		WebElement elem = driver.findElement(By.xpath("(//button[contains(@id,'bookbutton-RKEY:')])[1]"));
+		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", elem);
+		
+		//driver.findElement(By.xpath("(//button[contains(@id,'bookbutton-RKEY:')])[1]")).click();
+	}
+
+}
